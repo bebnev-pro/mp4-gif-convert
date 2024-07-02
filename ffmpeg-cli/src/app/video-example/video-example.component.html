@@ -1,0 +1,15 @@
+<div class="card">
+  <video class="card-img-top" controls>
+    <source src="{{'/' + videoUrl}}" type="video/mp4">
+  </video>
+  <div class="card-body text-start">
+    <p>
+      <a class="btn btn-outline-dark" download='FileName' href="{{'http://localhost:3000/' + videoUrl}}">
+        Download
+      </a>
+    </p>
+    <a class="btn btn-outline-dark" id="{{ getConvertedName(videoUrl) }}" download='GifFileName' href="{{'http://localhost:3000/get-file/' + getConvertedName(videoUrl) }}">
+      Get converted
+    </a>
+  </div>
+</div>

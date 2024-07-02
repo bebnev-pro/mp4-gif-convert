@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  back:
+    image: <repo>
+    ports:
+      - "3000:3000"
+    command: npm start
+#    network_mode: host
+    deploy:
+      mode: replicated
+      replicas: 5

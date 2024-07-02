@@ -1,0 +1,15 @@
+<h3>Hello, dear! Try the service:</h3>
+<p>Download the example and try to convert it via form!</p>
+
+<div class="container text-center">
+  <form class="input-group mb-3" action="/upload/file" enctype="multipart/form-data" method="post">
+    <input type="file" name="video" class="file-upload">
+    <button class="btn btn-outline-dark" type="submit">Отправить</button>
+  </form>
+  <div class="row gap-4">
+    <div class="col-3" *ngFor="let video of httpService.data$ | async">
+      <app-video-example [videoUrl]="video"></app-video-example>
+    </div>
+  </div>
+</div>
+

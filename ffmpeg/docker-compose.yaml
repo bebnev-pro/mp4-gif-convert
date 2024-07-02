@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  back:
+    ports:
+      - "3000:3000"
+    build: ./
+    command: npm start
+#    network_mode: host
