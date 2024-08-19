@@ -1,18 +1,17 @@
-1. Не забываем установить зависимости во всех 3 папках командой npm install
+1. Don't forget to install dependencies in all 3 subfolders by the `npm install` command.
 
-2. Сначала создаем контейнер из файла (swarm/ffmpeg/docker-compose.yaml) командой docker-compose build
+2. Firstly, create a container from the file (`swarm/ffmpeg/docker-compose.yaml`) with the docker-compose build command.
 
-3. После этого создастся image. Берем его хэш и публикуем в регистр командой:
-docker tag <hash> <account/name>
-docker push <account/name>
+3. After that, an image will be created. Take its hash and publish it to the registry with the command:
+   `docker tag <hash> <account/name>`
+   `docker push <account/name>`
 
-4. Теперь нужно поднять стек из опубликованного image из compose файла (swarm/docker-compose.yaml) где нужно поменять название нашего image
-docker stack deploy --with-registry-auth -c ./docker-compose.yaml stage;
+4. Now we need to raise the stack from the published image from the compose file (`swarm/docker-compose.yaml`) where we need to change the name of our image `docker stack deploy --with-registry-auth -c ./docker-compose.yaml stage;`.
 
-5. Теперь сервис из 5-ти экземпляров запущен и можно проверить его работы по ссылке http://localhost:3000 уже можно перегонять видео mp4 в гифки с помощью формы или по кнопке
+5. Now the service of 5 copies is launched, and you can check its work at the url http://localhost:3000 you can already convert .mp4 videos to .gifs using the form or the button.
 
-6. Запустить cypress тесты можно из папки cypress по команде npm start или npm test они будут запускаться соотвественно в браузере или в консоли.
+6. You can run cypress tests from the cypress folder using the `npm start` or `npm test command`, they will be launched in the browser or in the console, respectively.
 
 P.S.
-Исходники клиента находится в папке ffmpeg-cli он уже сбилден и скопирован на сервер ноды, там он и отдается, отдельным контейнером
-не сделал из-за корс проблем работы формы. Также и все остальное не сделал для ускорения и облегчения. Минимальная прототипная функциональность.
+The client's source code is in the `/ffmpeg-cli` folder, it has already been built and copied to the node server, where it is given, in a separate container.
+I didn't do it because of the CORS problems of the form. I also didn't do everything else to speed it up and make it easier. Minimal prototype functionality.
